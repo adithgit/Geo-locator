@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+}
+
+.input-ip{
+  width: fit-content;
+  margin: auto;
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+
+}
+
+.map-box{
+  margin: auto;
+  margin-top: 1%;
+  height: 75vh;
+  width: 75vw;
+  background: url("https://www.thestatesman.com/wp-content/uploads/2020/04/googl_ED.jpg");
+  background-size: cover;
+}
+
+.Button{
+  background-color: #8400ff !important;
+  margin-left: 1rem !important;
+}
