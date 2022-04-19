@@ -23,13 +23,10 @@ function Input() {
         console.log( latitude +" "+ longitude);
     }
 
-    const inputProps = {
-        onChange:handleInput
-    }
     return (
         <div className='input-ip'>
             <TextField
-                id="outlined-basic" inputProps={ inputProps } value={ ip } sx={{ input: { color: 'white' }, label: { color: '#8400ff' } }} label="Enter IP Here" variant="outlined" color="secondary" />
+                id="outlined-basic" inputProps={ { onChange : handleInput} } value={ ip } sx={{ input: { color: 'white' }, label: { color: '#8400ff' } }} label="Enter IP Here" variant="outlined" color="secondary" />
             <Button variant="contained" onClick={ fetchLocation } className='Button' color="success">
                 Get Location
             </Button>
