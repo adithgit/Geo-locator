@@ -3,37 +3,41 @@ import "../style/App.css";
 import { Loader } from '@googlemaps/js-api-loader'
 
 
-function Map() {
+function Map(props) {
+
+  const center = props.locationData ? props.locationData : {
+    lat: 12.127345,
+    lng: 76.077986
+  }
+
+
   const loader = new Loader({
-    apiKey:"",
+    apiKey: process.env.MAP_API_KEY,
     version: "weekly",
     libraries: ["places"]
   });
   const mapOptions = {
-    center: {
-      lat: 9.578289985656738 ,
-      lng: 76.97295379638672
-    },
+    center,
     zoom: 15
   };
-  
-  useEffect(()=>{
-    loader.load().then((google)=>{
-      const map = new google.maps.Map(document.getElementById("map"),mapOptions);
+
+  useEffect(() => {
+    loader.load().then((google) => {
+      const map = new google.maps.Map(document.getElementById("map"), mapOptions);
       new google.maps.Marker({
-        position:mapOptions.center,
+        position: mapOptions.center,
         map,
-        title:"Ip location"
+        title: "Ip location"
       })
-    }).catch((err)=>{
+    }).catch((err) => {
       console.log(err);
     });
-    
-  }, [])
+
+  }, [ center ])
 
   return (
     <div id='map' className='map-box' >
-      
+
     </div>
   )
 }
