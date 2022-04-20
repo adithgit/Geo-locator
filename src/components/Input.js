@@ -18,11 +18,10 @@ function Input(props) {
     // Fetching location data using ipstack API and axios
 
     async function fetchLocation() {
-        const url = "http://api.ipstack.com/117.223.186.226?access_key="+process.env.IP_API_KEY;
+        const url = `http://api.ipstack.com/${ip}?access_key=${process.env.IP_API_KEY}`
         const response = await axios.get(url);
         const { latitude, longitude } = response.data;
         setLocationData({lat:latitude, lng:longitude});
-        console.log( locationData );
     }
 
     return (
