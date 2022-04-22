@@ -12,7 +12,7 @@ function Map(props) {
 
 
   const loader = new Loader({
-    apiKey: "AIzaSyDgRzSGQ8Zfwy8zbu68CxxGXUW6wUMcnqU",
+    apiKey: process.env.REACT_APP_MAP_API_KEY,
     version: "weekly",
     libraries: ["places"]
   });
