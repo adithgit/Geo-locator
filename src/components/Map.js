@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import "../style/App.css";
 import { Loader } from '@googlemaps/js-api-loader'
+import { margin } from '@mui/system';
 
 
 function Map(props) {
@@ -27,18 +28,21 @@ function Map(props) {
       new google.maps.Marker({
         position: mapOptions.center,
         map,
-        title: "Ip location"
+        title: "The Ip location is here"
       })
     }).catch((err) => {
       console.log(err);
     });
 
-  }, [ center ])
+  }, [center])
 
   return (
-    <div id='map' className='map-box' >
-
+    <div>
+    <h4 style={{color:"white", margin:"2rem"}}>{props.title}</h4>
+      <div id='map' className='map-box' >
+      </div>
     </div>
+
   )
 }
 

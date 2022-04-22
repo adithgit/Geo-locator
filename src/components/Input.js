@@ -42,7 +42,7 @@ function Input(props) {
                 </LoadingButton>
             </div >
             {
-                locationData ? <Map locationData={locationData} /> : <Map />
+                locationData ? <Map title= {"LOCATION FOUND"} locationData={locationData} /> : <Map />
             }
 
         </div>
