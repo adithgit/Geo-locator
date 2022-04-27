@@ -9,6 +9,7 @@ function Input(props) {
     let ip;
     const [locationData, setLocationData] = useState(null);
     const [loadingValue , setLoading] = useState(false)
+    const[ head, setHead ] = useState("LOCATION FOUND");
 
     // Fetching location data using ipstack API and axios
     async function fetchLocation(e) {
@@ -16,6 +17,12 @@ function Input(props) {
         setLoading(true)
         const url = `http://api.ipstack.com/${ip}?access_key=${process.env.REACT_APP_IP_API_KEY}`
         const response = await axios.get(url);
+        if(response.data.success==false){
+            console.log(head);
+            setHead("ERROR FETCHING DATA : INVALID IP ADDRESS");
+        }else{
+            setHead("LOCATION FOUND");
+        }
         const { latitude, longitude } = response.data;
         setLocationData({ lat: latitude, lng: longitude });
         setLoading(false)
@@ -42,7 +49,7 @@ function Input(props) {
                 </LoadingButton>
             </div >
             {
-                locationData ? <Map title= {"LOCATION FOUND"} locationData={locationData} /> : <Map />
+                locationData ? <Map title= {head} locationData={locationData} /> : <Map />
             }
 
         </div>

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import "../style/App.css";
 import { Loader } from '@googlemaps/js-api-loader'
-import { margin } from '@mui/system';
 
 
 function Map(props) {
@@ -10,6 +9,8 @@ function Map(props) {
     lat: 12.127345,
     lng: 76.077986
   }
+
+  console.log(props.title);
 
 
   const loader = new Loader({
